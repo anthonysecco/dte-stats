@@ -22,7 +22,7 @@ body:
   - type: input
     id: version
     attributes:
-      label: DTE Stats version
+      label: DTE Energy integration version
       placeholder: "0.1.0"
     validations:
       required: true
@@ -36,4 +36,4 @@ body:
     id: diagnostics
     attributes:
       label: Diagnostics
-      description: Drag in the file from Settings → Devices & services → DTE Stats → ⋮ → Download diagnostics.
+      description: Drag in the file from Settings → Devices & services → DTE Energy → ⋮ → Download diagnostics.

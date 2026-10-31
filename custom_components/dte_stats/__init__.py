@@ -1,4 +1,4 @@
-"""DTE Stats: DTE Energy usage, costs and time-of-day prices from the Green Button data link."""
+"""DTE Energy integration: usage, costs and time-of-day prices from the Green Button data link."""
 
 from __future__ import annotations
 
@@ -13,7 +13,7 @@ PLATFORMS: list[Platform] = [Platform.BINARY_SENSOR, Platform.SENSOR]
 
 
 async def async_setup_entry(hass: HomeAssistant, entry: DteConfigEntry) -> bool:
-    """Set up DTE Stats from a config entry."""
+    """Set up DTE Energy from a config entry."""
     coordinator = DteCoordinator(hass, entry)
     await coordinator.async_config_entry_first_refresh()
     entry.runtime_data = coordinator

@@ -1,6 +1,6 @@
 [project]
 name = "dte-stats"
-version = "0.1.0"
+version = "0.1.1"
 description = "Home Assistant integration for DTE Energy usage, costs and time-of-day prices from the Green Button data link"
 requires-python = ">=3.13"
 license = "MIT"

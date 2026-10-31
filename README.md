@@ -1,4 +1,4 @@
-# DTE Stats for Home Assistant
+# DTE Energy for Home Assistant
 
 [![HACS Custom](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://hacs.xyz/docs/faq/custom_repositories/)
 [![GitHub release](https://img.shields.io/github/v/release/anthonysecco/dte-stats)](https://github.com/anthonysecco/dte-stats/releases)
@@ -56,7 +56,7 @@ DTE doesn't say how long a link stays valid. If it stops working, Home Assistant
 Or add it by hand:
 1. In Home Assistant open **HACS**, then the **⋮** menu (top right), then **Custom repositories**.
 2. Repository: `https://github.com/anthonysecco/dte-stats`. Type: **Integration**. Click **Add**.
-3. Search HACS for **DTE Stats**, open it and click **Download**.
+3. Search HACS for **DTE Energy**, open it and click **Download**.
 4. **Restart Home Assistant.**
 5. Add the integration (next section).
 
@@ -67,15 +67,15 @@ Copy `custom_components/dte_stats` from the [latest release](https://github.com/
 
 ## Configuration
 
-[![Open your Home Assistant instance and start setting up DTE Stats.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=dte_stats)
+[![Open your Home Assistant instance and start setting up DTE Energy.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=dte_stats)
 
-**Settings → Devices & services → Add integration → DTE Stats.** Paste your usage data link and pick the electric plan on your bill. Setup downloads the file once to check it, then creates a **DTE Energy** device.
+**Settings → Devices & services → Add integration → DTE Energy.** Paste your usage data link and pick the electric plan on your bill. Setup downloads the file once to check it, then creates a **DTE Energy** device.
 
 The first download imports all the history in the file (about 13 months); it can take a minute.
 
 ### Options
 
-**Settings → Devices & services → DTE Stats → Configure.** Saving reloads the integration.
+**Settings → Devices & services → DTE Energy → Configure.** Saving reloads the integration.
 
 - **Electric plan**: the plan used for costs and the price and peak sensors.
 - **Check for new data every**: 1 to 24 hours (default 6). DTE updates once a day or so.
@@ -136,7 +136,7 @@ See [docs/automations.md](docs/automations.md), for example keeping a hot tub or
 - **Energy dashboard shows nothing for today**: expected; DTE's data runs a day or two behind.
 - **Costs differ from the bill**: the bill adds fixed charges, taxes and any credits, and the billing period differs from calendar months.
 
-- **Diagnostics:** **Settings → Devices & services → DTE Stats → ⋮ → Download diagnostics** shows what the file covers, without the link or your readings. Attach it to [issues](https://github.com/anthonysecco/dte-stats/issues).
+- **Diagnostics:** **Settings → Devices & services → DTE Energy → ⋮ → Download diagnostics** shows what the file covers, without the link or your readings. Attach it to [issues](https://github.com/anthonysecco/dte-stats/issues).
 - **Debug logging:**
   ```yaml
   logger:

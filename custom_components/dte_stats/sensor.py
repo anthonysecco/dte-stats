@@ -1,4 +1,4 @@
-"""Sensors for DTE Stats."""
+"""Sensors for DTE Energy."""
 
 from __future__ import annotations
 

@@ -1,4 +1,4 @@
-"""Config, reconfigure and options flows for DTE Stats."""
+"""Config, reconfigure and options flows for DTE Energy."""
 
 from __future__ import annotations
 

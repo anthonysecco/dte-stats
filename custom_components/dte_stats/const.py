@@ -1,4 +1,4 @@
-"""Constants for DTE Stats."""
+"""Constants for DTE Energy."""
 
 from __future__ import annotations
 

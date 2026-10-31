@@ -1,4 +1,4 @@
-"""Base entities for DTE Stats."""
+"""Base entities for DTE Energy."""
 
 from __future__ import annotations
 

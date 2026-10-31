@@ -36,7 +36,7 @@
   "options": {
     "step": {
       "init": {
-        "title": "DTE Stats options",
+        "title": "DTE Energy options",
         "data": {
           "electric_plan": "Electric plan",
           "update_hours": "Check for new data every"
@@ -121,7 +121,7 @@
   "issues": {
     "link_not_working": {
       "title": "DTE usage data link stopped working",
-      "description": "DTE no longer returns usage data for the saved link; it may have expired. Create a new link in your DTE account (Usage → Usage History), then open Settings → Devices & services → DTE Stats → ⋮ → Reconfigure and paste it. Imported history is kept."
+      "description": "DTE no longer returns usage data for the saved link; it may have expired. Create a new link in your DTE account (Usage → Usage History), then open Settings → Devices & services → DTE Energy → ⋮ → Reconfigure and paste it. Imported history is kept."
     }
   }
 }

@@ -1,1 +1,1 @@
-"""Tests for DTE Stats."""
+"""Tests for DTE Energy."""

@@ -1,4 +1,4 @@
-"""Shared fixtures for DTE Stats tests.
+"""Shared fixtures for DTE Energy tests.
 
 The usage file is generated: same layout as DTE's Green Button export (including DTE's gas
 meter reading that links to the electric reading type), made-up numbers, no real account.

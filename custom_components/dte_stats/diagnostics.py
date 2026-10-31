@@ -1,4 +1,4 @@
-"""Diagnostics for DTE Stats: coverage and settings, never the link or the readings."""
+"""Diagnostics for DTE Energy: coverage and settings, never the link or the readings."""
 
 from __future__ import annotations
 

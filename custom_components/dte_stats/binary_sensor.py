@@ -1,4 +1,4 @@
-"""Binary sensor for DTE Stats: is it peak time on the chosen plan?"""
+"""Binary sensor for DTE Energy: is it peak time on the chosen plan?"""
 
 from __future__ import annotations
 
