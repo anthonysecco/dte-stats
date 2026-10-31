@@ -198,8 +198,10 @@ async def test_device_card(hass: HomeAssistant, mock_dte, freezer) -> None:
     """The device page links to the project and shows the version, plan and rate date."""
     freezer.move_to(NOW)
     entry = await _setup(hass, electric_plan="d1_2")
-    device = dr.async_get(hass).async_get_device(identifiers={(DOMAIN, entry.entry_id)})
-    assert device is not None
+    devices = dr.async_entries_for_config_entry(dr.async_get(hass), entry.entry_id)
+    assert len(devices) == 1
+    device = devices[0]
+    assert (DOMAIN, entry.entry_id) in device.identifiers
     assert device.configuration_url == "https://github.com/anthonysecco/dte-stats"
     assert device.sw_version == json.loads(MANIFEST.read_text())["version"]
     assert device.model == "Usage data link, plan D1.2, rates as of 2026-10-23"
