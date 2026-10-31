@@ -9,6 +9,7 @@ from homeassistant.components.recorder.statistics import statistics_during_perio
 from homeassistant.config_entries import ConfigEntryState
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers import issue_registry as ir
+from homeassistant.util.unit_system import US_CUSTOMARY_SYSTEM
 import pytest
 from pytest_homeassistant_custom_component.common import MockConfigEntry
 
@@ -81,6 +82,7 @@ async def test_refresh_adds_only_new_hours(hass: HomeAssistant, mock_dte, freeze
 
 async def test_usage_sensors(hass: HomeAssistant, mock_dte, freezer) -> None:
     freezer.move_to(NOW)
+    hass.config.units = US_CUSTOMARY_SYSTEM  # metric would show gas in m3
     await _setup(hass)
     last_day = date(2026, 10, 30)
 
