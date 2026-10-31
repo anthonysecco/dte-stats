@@ -1,0 +1,127 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect DTE usage data",
+        "description": "Create a usage data link in your DTE account (Usage → Usage History → share your Green Button data), then paste it here. Anyone with the link can see your usage, so it is stored as a secret.",
+        "data": {
+          "link": "Usage data link",
+          "electric_plan": "Electric plan"
+        },
+        "data_description": {
+          "link": "Starts with https://usagedata.dteenergy.com/link/",
+          "electric_plan": "The plan on your electric bill. It sets the prices used for costs and the peak sensors; you can change it later."
+        }
+      },
+      "reconfigure": {
+        "title": "Replace the usage data link",
+        "description": "Create a new link in your DTE account and paste it here. Imported history is kept.",
+        "data": {
+          "link": "Usage data link"
+        }
+      }
+    },
+    "error": {
+      "invalid_link": "That doesn't look like a DTE usage data link. It should start with https://usagedata.dteenergy.com/link/",
+      "link_not_working": "DTE didn't return usage data for this link. It may have expired; create a new one in your DTE account.",
+      "cannot_connect": "Couldn't reach DTE. Try again in a few minutes.",
+      "different_account": "This link belongs to a different DTE account. Add it as a new entry instead.",
+      "unknown": "Unexpected error"
+    },
+    "abort": {
+      "already_configured": "This DTE account is already set up.",
+      "reconfigure_successful": "The new link works. History and settings are kept."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "DTE Stats options",
+        "data": {
+          "electric_plan": "Electric plan",
+          "update_hours": "Check for new data every"
+        },
+        "data_description": {
+          "electric_plan": "Used for new costs and the peak and price sensors. Costs already imported keep the plan they were priced with.",
+          "update_hours": "DTE publishes usage a day or two late, so a few times a day is plenty."
+        }
+      }
+    }
+  },
+  "selector": {
+    "electric_plan": {
+      "options": {
+        "d1_11": "Standard time of day, peak weekdays 3–7 pm (D1.11)",
+        "d1_2": "Time of day, peak weekdays 11 am–7 pm (D1.2)",
+        "d1_13": "Overnight savers, cheapest 1–7 am (D1.13)"
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "peak_now": {
+        "name": "Peak hours"
+      }
+    },
+    "sensor": {
+      "electric_last_day": {
+        "name": "Electricity last day"
+      },
+      "electric_cost_last_day": {
+        "name": "Electricity cost last day"
+      },
+      "electric_month": {
+        "name": "Electricity this month"
+      },
+      "electric_cost_month": {
+        "name": "Electricity cost this month"
+      },
+      "peak_share": {
+        "name": "Peak share"
+      },
+      "cheapest_plan": {
+        "name": "Cheapest plan",
+        "state": {
+          "d1_11": "Standard (D1.11)",
+          "d1_2": "Time of day 11–7 (D1.2)",
+          "d1_13": "Overnight savers (D1.13)"
+        }
+      },
+      "gas_last_day": {
+        "name": "Gas last day"
+      },
+      "gas_cost_last_day": {
+        "name": "Gas cost last day"
+      },
+      "gas_month": {
+        "name": "Gas this month"
+      },
+      "gas_cost_month": {
+        "name": "Gas cost this month"
+      },
+      "data_through": {
+        "name": "Data through"
+      },
+      "electric_price": {
+        "name": "Electricity price"
+      },
+      "price_period": {
+        "name": "Price period",
+        "state": {
+          "peak": "Peak",
+          "off_peak": "Off-peak",
+          "super_off_peak": "Super off-peak"
+        }
+      },
+      "next_peak": {
+        "name": "Next peak"
+      }
+    }
+  },
+  "issues": {
+    "link_not_working": {
+      "title": "DTE usage data link stopped working",
+      "description": "DTE no longer returns usage data for the saved link; it may have expired. Create a new link in your DTE account (Usage → Usage History), then open Settings → Devices & services → DTE Stats → ⋮ → Reconfigure and paste it. Imported history is kept."
+    }
+  }
+}

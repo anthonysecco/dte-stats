@@ -1,0 +1,34 @@
+{
+  "entity": {
+    "binary_sensor": {
+      "peak_now": {
+        "default": "mdi:clock-check-outline",
+        "state": {
+          "on": "mdi:clock-alert-outline"
+        }
+      }
+    },
+    "sensor": {
+      "electric_last_day": { "default": "mdi:lightning-bolt" },
+      "electric_cost_last_day": { "default": "mdi:cash" },
+      "electric_month": { "default": "mdi:lightning-bolt-circle" },
+      "electric_cost_month": { "default": "mdi:cash-multiple" },
+      "peak_share": { "default": "mdi:chart-pie" },
+      "cheapest_plan": { "default": "mdi:tag-check-outline" },
+      "gas_last_day": { "default": "mdi:fire" },
+      "gas_cost_last_day": { "default": "mdi:cash" },
+      "gas_month": { "default": "mdi:fire-circle" },
+      "gas_cost_month": { "default": "mdi:cash-multiple" },
+      "data_through": { "default": "mdi:calendar-clock" },
+      "electric_price": { "default": "mdi:currency-usd" },
+      "price_period": {
+        "default": "mdi:clock-outline",
+        "state": {
+          "peak": "mdi:clock-alert-outline",
+          "super_off_peak": "mdi:weather-night"
+        }
+      },
+      "next_peak": { "default": "mdi:clock-start" }
+    }
+  }
+}

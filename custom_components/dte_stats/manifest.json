@@ -1,0 +1,13 @@
+{
+  "domain": "dte_stats",
+  "name": "DTE Stats",
+  "codeowners": ["@anthonysecco"],
+  "config_flow": true,
+  "dependencies": ["recorder"],
+  "documentation": "https://github.com/anthonysecco/dte-stats",
+  "integration_type": "service",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/anthonysecco/dte-stats/issues",
+  "requirements": [],
+  "version": "0.1.0"
+}

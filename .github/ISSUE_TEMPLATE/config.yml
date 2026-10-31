@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: DTE rate books
+    url: https://www.dteenergy.com/content/dam/dteenergy/deg/website/common/service-and-price/rate-cards/DTEElectricRateBook.pdf
+    about: Prices come from DTE's rate books. If a price looks wrong, include the rate book page with the issue.
