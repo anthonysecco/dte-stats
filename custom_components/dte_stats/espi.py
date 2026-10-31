@@ -123,9 +123,9 @@ def parse_feed(text: str) -> UsageFeed:
             continue
         point = _USAGE_POINT.search(href)
         usage_point = content.find("e:UsagePoint", NS)
-        if usage_point is not None and point:
-            if kind := SERVICE_KINDS.get(_text(usage_point, "e:ServiceCategory/e:kind") or ""):
-                kinds[point.group(1)] = kind
+        service = _text(usage_point, "e:ServiceCategory/e:kind") or ""
+        if usage_point is not None and point and (kind := SERVICE_KINDS.get(service)):
+            kinds[point.group(1)] = kind
         reading_type = content.find("e:ReadingType", NS)
         if reading_type is not None and (kind := COMMODITIES.get(_text(reading_type, "e:commodity") or "")):
             multipliers[kind] = int(_text(reading_type, "e:powerOfTenMultiplier") or DEFAULT_MULTIPLIER[kind])

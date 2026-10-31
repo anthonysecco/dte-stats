@@ -57,9 +57,12 @@ class ElectricPlan:
     def period(self, when: datetime) -> str:
         """Peak, off-peak or super off-peak for this moment (Michigan local time)."""
         local = when.astimezone(DTE_TZ)
-        if self.super_off_start is not None and self.super_off_end is not None:
-            if self.super_off_start <= local.hour < self.super_off_end:
-                return SUPER_OFF_PEAK
+        if (
+            self.super_off_start is not None
+            and self.super_off_end is not None
+            and self.super_off_start <= local.hour < self.super_off_end
+        ):
+            return SUPER_OFF_PEAK
         if local.weekday() < 5 and self.peak_start <= local.hour < self.peak_end:
             return PEAK
         return OFF_PEAK

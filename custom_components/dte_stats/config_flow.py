@@ -26,6 +26,7 @@ from .const import (
     CONF_SCAN_HOURS,
     DEFAULT_OPTIONS,
     DOMAIN,
+    LINK_PREFIX,
     LINK_RE,
     LOGGER,
     MAX_SCAN_HOURS,
@@ -90,7 +91,9 @@ class DteStatsConfigFlow(ConfigFlow, domain=DOMAIN):
                 ),
             }
         )
-        return self.async_show_form(step_id="user", data_schema=schema, errors=errors)
+        return self.async_show_form(
+            step_id="user", data_schema=schema, errors=errors, description_placeholders={"link_prefix": LINK_PREFIX}
+        )
 
     async def async_step_reconfigure(self, user_input: dict[str, Any] | None = None) -> ConfigFlowResult:
         """Paste a new link (DTE links can stop working)."""

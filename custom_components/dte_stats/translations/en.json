@@ -9,7 +9,7 @@
           "electric_plan": "Electric plan"
         },
         "data_description": {
-          "link": "Starts with https://usagedata.dteenergy.com/link/",
+          "link": "Starts with {link_prefix}",
           "electric_plan": "The plan on your electric bill. It sets the prices used for costs and the peak sensors; you can change it later."
         }
       },
@@ -22,7 +22,7 @@
       }
     },
     "error": {
-      "invalid_link": "That doesn't look like a DTE usage data link. It should start with https://usagedata.dteenergy.com/link/",
+      "invalid_link": "That doesn't look like a DTE usage data link. Copy the whole link from your DTE account.",
       "link_not_working": "DTE didn't return usage data for this link. It may have expired; create a new one in your DTE account.",
       "cannot_connect": "Couldn't reach DTE. Try again in a few minutes.",
       "different_account": "This link belongs to a different DTE account. Add it as a new entry instead.",
