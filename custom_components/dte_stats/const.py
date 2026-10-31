@@ -17,6 +17,7 @@ DTE_TZ = ZoneInfo("America/Detroit")
 # The shareable usage link from the DTE account (Usage -> Usage History -> share).
 LINK_RE = re.compile(r"^https://usagedata\.dteenergy\.com/link/[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}/?$")
 LINK_PREFIX = "https://usagedata.dteenergy.com/link/"
+PROJECT_URL = "https://github.com/anthonysecco/dte-stats"
 
 CONF_LINK = "link"
 CONF_PLAN = "electric_plan"

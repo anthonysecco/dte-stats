@@ -9,9 +9,11 @@ from homeassistant.helpers.device_registry import DeviceEntryType, DeviceInfo
 from homeassistant.helpers.entity import EntityDescription
 from homeassistant.helpers.event import async_track_time_change
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
+from homeassistant.loader import async_get_loaded_integration
 
-from .const import ATTRIBUTION, DOMAIN
+from .const import ATTRIBUTION, DOMAIN, PROJECT_URL
 from .coordinator import DteCoordinator
+from .tariff import RATES_AS_OF
 
 
 class DteEntity(CoordinatorEntity[DteCoordinator]):
@@ -25,12 +27,15 @@ class DteEntity(CoordinatorEntity[DteCoordinator]):
         super().__init__(coordinator)
         self.entity_description = description
         self._attr_unique_id = f"{coordinator.config_entry.entry_id}_{description.key}"
+        version = async_get_loaded_integration(coordinator.hass, DOMAIN).version
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, coordinator.config_entry.entry_id)},
             name="DTE Energy",
-            manufacturer="DTE Energy",
-            model="Green Button usage data",
+            manufacturer="DTE Energy (unofficial integration)",
+            model=f"Usage data link, plan {coordinator.plan.key}, rates as of {RATES_AS_OF.isoformat()}",
+            sw_version=str(version) if version else None,
             entry_type=DeviceEntryType.SERVICE,
+            configuration_url=PROJECT_URL,
         )
 
     @property

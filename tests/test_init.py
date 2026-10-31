@@ -3,12 +3,14 @@
 from __future__ import annotations
 
 from datetime import UTC, date, datetime, timedelta
+import json
+from pathlib import Path
 
 from homeassistant.components.recorder import get_instance
 from homeassistant.components.recorder.statistics import statistics_during_period
 from homeassistant.config_entries import ConfigEntryState
 from homeassistant.core import HomeAssistant
-from homeassistant.helpers import issue_registry as ir
+from homeassistant.helpers import device_registry as dr, issue_registry as ir
 from homeassistant.util.unit_system import US_CUSTOMARY_SYSTEM
 import pytest
 from pytest_homeassistant_custom_component.common import MockConfigEntry
@@ -19,6 +21,7 @@ from custom_components.dte_stats.tariff import PLANS, gas_price
 
 from .conftest import CUSTOMER, DAYS, LINK, PREFIX, build_feed, wait_recorder
 
+MANIFEST = Path(__file__).parent.parent / "custom_components" / "dte_stats" / "manifest.json"
 NOW = "2026-10-31 09:00:00-04:00"  # Saturday morning; data runs through Friday Oct 30
 IDS = [f"{DOMAIN}:{PREFIX}_{kind}_{what}" for kind in ("electric", "gas") for what in ("consumption", "cost")]
 
@@ -189,6 +192,18 @@ async def test_unreachable_is_not_a_link_problem(hass: HomeAssistant, aioclient_
     await hass.async_block_till_done()
     assert entry.state is ConfigEntryState.SETUP_RETRY
     assert ir.async_get(hass).async_get_issue(DOMAIN, ISSUE_LINK) is None
+
+
+async def test_device_card(hass: HomeAssistant, mock_dte, freezer) -> None:
+    """The device page links to the project and shows the version, plan and rate date."""
+    freezer.move_to(NOW)
+    entry = await _setup(hass, electric_plan="d1_2")
+    device = dr.async_get(hass).async_get_device(identifiers={(DOMAIN, entry.entry_id)})
+    assert device is not None
+    assert device.configuration_url == "https://github.com/anthonysecco/dte-stats"
+    assert device.sw_version == json.loads(MANIFEST.read_text())["version"]
+    assert device.model == "Usage data link, plan D1.2, rates as of 2026-10-23"
+    assert device.manufacturer == "DTE Energy (unofficial integration)"
 
 
 async def test_diagnostics_hide_the_link(hass: HomeAssistant, mock_dte, freezer) -> None:
